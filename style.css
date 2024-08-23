@@ -1,67 +1,91 @@
+/* Same CSS as before, minus the #historyLog and .history-item styles */
+
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    font-family: 'Poppins', sans-serif;
+    background-color: #282c34;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    color: #61dafb;
+    background: linear-gradient(120deg, #89f7fe, #66a6ff);
+    background-size: 200% 200%;
+    animation: gradientMove 15s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #20232a;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     text-align: center;
+    width: 320px;
 }
 
 h1 {
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: 28px;
+    color: #61dafb;
 }
 
+/* Inputs, Buttons */
 input, select, button {
     padding: 12px;
     margin: 10px 0;
     width: calc(100% - 24px);
     border-radius: 8px;
-    border: 2px solid #ccc;
+    border: none;
     font-size: 16px;
     box-sizing: border-box;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-input:focus, select:focus {
-    border-color: #4CAF50;
-    outline: none;
+input {
+    background-color: #333842;
+    color: #fff;
+}
+
+select {
+    background-color: #333842;
+    color: #fff;
 }
 
 button {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #61dafb;
+    color: #282c34;
     cursor: pointer;
+    font-weight: bold;
     border: none;
     width: calc(100% - 24px);
     font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #21a1f1;
 }
 
 #resultDisplay {
     margin-top: 20px;
-    font-size: 24px;
+    font-size: 20px;
     color: #333;
-    background-color: #e0f7fa;
+    background-color: #61dafb;
     padding: 15px;
     border-radius: 8px;
-    border: 2px solid #00c17a;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    border: 2px solid #21a1f1;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease, background-color 1s ease;
     opacity: 0;
     transform: translateY(20px);
+    color: #282c34;
 }
 
 #resultDisplay.show {
@@ -69,6 +93,14 @@ button:hover {
     transform: translateY(0);
 }
 
-input:invalid {
-    border-color: red;
+
+/* Theme Toggle */
+body.light-mode {
+    background: #f0f0f0;
+    color: #282c34;
+}
+
+body.dark-mode {
+    background: #282c34;
+    color: #f0f0f0;
 }
